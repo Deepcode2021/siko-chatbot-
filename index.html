@@ -12,7 +12,7 @@
           $("#message").val(""); // clear the input field
           
           // Use jQuery to send a post request to your chatbot endpoint
-          $.post("/chatbot", { message: message }, function(response) {
+          $.post("https://siko-chatbot.vercel.app/index.js", { message: message }, function(response) {
             $("#chat").append("<p>Chatbot: " + response + "</p>");
           });
         });
