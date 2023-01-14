@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-app.post('/chatbot', (req, res) => {
+app.post('https://siko-chatbot.vercel.app/', (req, res) => {
   const { message } = req.body;
   let response;
 
