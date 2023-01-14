@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Send a message when the user submits the form
+        $("form").submit(function(e) {
+          e.preventDefault(); // prevent the page from refreshing
+          var message = $("#message").val();
+          $("#chat").append("<p>You: " + message + "</p>");
+          $("#message").val(""); // clear the input field
+          
+          // Use jQuery to send a post request to your chatbot endpoint
+          $.post("/chatbot", { message: message }, function(response) {
+            $("#chat").append("<p>Chatbot: " + response + "</p>");
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="chat"></div>
+    <form>
+      <input type="text" id="message" placeholder="Type your message here">
+      <input type="submit" value="Send">
+    </form>
+  </body>
+</html>
